@@ -7,14 +7,14 @@ const plus1000 = document.getElementById("plus1000");
 const plus1000000 = document.getElementById("plus1000000");
 const modal = document.getElementById("modal");
 const closeModal = document.getElementById("closeModal");
+const egg = document.getElementById("e");
 
 // AUX
 function getRawNumber(htmlTag) {
-  let rawNumber = Number(htmlTag.innerHTML.replace(/[^0-9]/g, ""));
-  return rawNumber;
+  return Number(htmlTag.innerHTML.replace(/[^0-9]/g, ""));
 }
 function getFormatNumber(rawNumber, plusNumber) {
-  let sumNumber = (rawNumber + plusNumber).toString().padStart(11, "0");
+  const sumNumber = (rawNumber + plusNumber).toString().padStart(11, "0");
   let result = `(${sumNumber.slice(0, 2)}) ${sumNumber.slice(
     2,
     7
@@ -30,7 +30,19 @@ submitButton.forEach((e) => {
 closeModal.addEventListener("click", () => {
   modal.close();
 });
-plusButton.addEventListener("click", addOne);
+
+egg.addEventListener("dblclick", () => console.log("Oi érika 🤯"));
+
+//1
+plusButton.addEventListener("click", () => {
+  let rawNumber = getRawNumber(phone);
+  let formatNumber = getFormatNumber(rawNumber, 1);
+
+  phone.innerHTML = formatNumber;
+
+  console.log("Oi érika");
+});
+
 plus1000.addEventListener("click", () => {
   let rawNumber = getRawNumber(phone);
   let formatNumber = getFormatNumber(rawNumber, 1000);
@@ -46,23 +58,6 @@ reset1.addEventListener("click", () => {
   const thanks = document.getElementById("message");
   if (thanks) thanks.remove();
 });
-
-function addOne() {
-  let rawNumber = getRawNumber(phone);
-  let formatNumber = getFormatNumber(rawNumber, 1);
-
-  phone.innerHTML = formatNumber;
-
-  console.log("Oi érika");
-}
-
-function submitMessage() {
-  const h3 = document.createElement("h3");
-  h3.innerText = "Thanks!";
-  h3.setAttribute("id", "message");
-  const thanks = document.getElementById("message");
-  if (!thanks) div1.appendChild(h3);
-}
 
 //2
 
@@ -93,4 +88,12 @@ reset2.addEventListener("click", () => {
   p1.innerHTML = "(00)";
   p2.innerHTML = "00000-";
   p3.innerHTML = "0000";
+});
+
+//3
+const slider = document.getElementById("slider");
+const value = document.getElementById("value");
+
+slider.addEventListener("input", (e) => {
+  value.textContent = getFormatNumber(Number(e.target.value), 0);
 });

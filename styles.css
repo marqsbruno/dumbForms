@@ -4,6 +4,14 @@
   gap: 2px;
 }
 
+body {
+  margin: 1rem;
+}
+
 button {
   cursor: pointer;
+}
+
+#slider {
+  width: 90%;
 }
