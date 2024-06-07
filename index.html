@@ -10,12 +10,21 @@
   <body>
     <h1>Enter your phone number</h1>
     <hr />
+    <dialog id="modal">
+      <h3>Thanks</h3>
+      <p>Nothing will happen</p>
+      <button id="closeModal">Close</button>
+    </dialog>
     <div id="form1">
       <h3>#1</h3>
       <span id="number">(00) 00000-0000</span>
-      <button id="plusButton">+</button>
       <button id="reset">reset</button>
-      <button id="submit">Submit</button>
+      <button class="submit">Submit</button>
+      <div class="flex-container">
+        <button id="plusButton">+1</button>
+        <button id="plus1000">+1000</button>
+        <button id="plus1000000">+1000000</button>
+      </div>
     </div>
     <hr />
     <div id="form2">
@@ -29,7 +38,7 @@
       <button id="btn2">Set</button>
       <button id="btn3">Set</button>
       <button id="reset2">reset</button>
-      <button>Submit</button>
+      <button class="submit">Submit</button>
     </div>
     <script src="script.js"></script>
   </body>

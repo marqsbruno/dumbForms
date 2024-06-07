@@ -1,4 +1,9 @@
 .flex-container {
+  margin-top: 5px;
   display: flex;
   gap: 2px;
+}
+
+button {
+  cursor: pointer;
 }

@@ -1,29 +1,55 @@
 const phone = document.getElementById("number");
 const plusButton = document.getElementById("plusButton");
 const reset1 = document.getElementById("reset");
-const submitButton = document.getElementById("submit");
+const submitButton = document.querySelectorAll(".submit");
 const div1 = document.getElementById("form1");
+const plus1000 = document.getElementById("plus1000");
+const plus1000000 = document.getElementById("plus1000000");
+const modal = document.getElementById("modal");
+const closeModal = document.getElementById("closeModal");
 
-submitButton.addEventListener("click", submitMessage);
+// AUX
+function getRawNumber(htmlTag) {
+  let rawNumber = Number(htmlTag.innerHTML.replace(/[^0-9]/g, ""));
+  return rawNumber;
+}
+function getFormatNumber(rawNumber, plusNumber) {
+  let sumNumber = (rawNumber + plusNumber).toString().padStart(11, "0");
+  let result = `(${sumNumber.slice(0, 2)}) ${sumNumber.slice(
+    2,
+    7
+  )}-${sumNumber.slice(7)}`;
+
+  return result;
+}
+
+submitButton.forEach((e) => {
+  e.addEventListener("click", () => modal.showModal());
+});
+
+closeModal.addEventListener("click", () => {
+  modal.close();
+});
 plusButton.addEventListener("click", addOne);
+plus1000.addEventListener("click", () => {
+  let rawNumber = getRawNumber(phone);
+  let formatNumber = getFormatNumber(rawNumber, 1000);
+  phone.innerHTML = formatNumber;
+});
+plus1000000.addEventListener("click", () => {
+  let rawNumber = getRawNumber(phone);
+  let formatNumber = getFormatNumber(rawNumber, 1000000);
+  phone.innerHTML = formatNumber;
+});
 reset1.addEventListener("click", () => {
   phone.innerHTML = "(00) 00000-0000";
   const thanks = document.getElementById("message");
   if (thanks) thanks.remove();
 });
 
-function getRawNumber(htmlTag) {
-  let rawNumber = Number(htmlTag.innerHTML.replace(/[^0-9]/g, ""));
-  return rawNumber;
-}
-
 function addOne() {
-  let rawNumber = Number(phone.innerHTML.replace(/[^0-9]/g, ""));
-  let sumNumber = (rawNumber + 1).toString().padStart(11, "0");
-  let formatNumber = `(${sumNumber.slice(0, 2)}) ${sumNumber.slice(
-    2,
-    7
-  )}-${sumNumber.slice(7)}`;
+  let rawNumber = getRawNumber(phone);
+  let formatNumber = getFormatNumber(rawNumber, 1);
 
   phone.innerHTML = formatNumber;
 
