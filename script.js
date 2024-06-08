@@ -97,3 +97,33 @@ const value = document.getElementById("value");
 slider.addEventListener("input", (e) => {
   value.textContent = getFormatNumber(Number(e.target.value), 0);
 });
+
+//4
+const select1 = document.getElementById("select1");
+const select2 = document.getElementById("select2");
+const select3 = document.getElementById("select3");
+
+function iterator(maxNumber) {
+  let array = [];
+  for (let i = 0; i <= maxNumber; i++) {
+    array.push(i);
+  }
+  return array;
+}
+
+const data1 = iterator(99);
+const data2 = iterator(9999);
+
+data1.forEach((e) => {
+  const option = document.createElement("option");
+  option.textContent = e.toString().padStart(2, "0");
+  select1.add(option);
+});
+data2.forEach((e) => {
+  const option2 = document.createElement("option");
+  const option3 = document.createElement("option");
+  option2.textContent = e.toString().padStart(4, "0");
+  option3.textContent = e.toString().padStart(4, "0");
+  select2.add(option2);
+  select3.add(option3);
+});
