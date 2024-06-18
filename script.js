@@ -39,8 +39,6 @@ plusButton.addEventListener("click", () => {
   let formatNumber = getFormatNumber(rawNumber, 1);
 
   phone.innerHTML = formatNumber;
-
-  console.log("Oi érika");
 });
 
 plus1000.addEventListener("click", () => {
