@@ -5,7 +5,7 @@ O projeto é uma página web que apresenta maneiras ridículas de se fazer um in
 https://marqsbruno.github.io/dumbForms/
 
 #
-<img src="https://github.com/marqsbruno/dumbForms/assets/94490136/570a8be7-b30a-4523-9b02-8f956b444a88" width=40%>
+<img src="https://github.com/marqsbruno/dumbForms/assets/94490136/f45cdafc-d206-4b5a-8287-9893b02d17b6" width=40%>
 
 
 ## Tech 🛠
